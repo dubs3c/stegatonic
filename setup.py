@@ -8,9 +8,8 @@ except ImportError:
 config = {
     'description': 'StegaTonic',
     'author': 'Michael Dubell',
-    'url': 'github',
-    'download_url': 'http://pypi.python.org/pypi/stegatonic/',
-    'author_email': 'michael@mdubell.com',
+    'url': 'https://github.com/mjdubell/stegatonic',
+    'download_url': 'https://github.com/mjdubell/stegatonic',
     'version': '0.5',
     'install_requires': ['Pillow', 'nose', 'argparse'],
     'packages': ['stegatonic'],

@@ -2,5 +2,4 @@ Steganography is the art and science of writing hidden messages in such a way th
 
 The word steganography is of Greek origin and means "concealed writing" from the Greek words steganos (στεγανός) meaning "covered or protected", and graphei (γραφή) meaning "writing". - Wikipedia
 
-StegTonic uses the popular LSB method to hide data within pixels but spreads the message randomly across the whole image making it harder to preform stegaanalysis.
-
+StegaTonic is still in active development.
