@@ -35,12 +35,12 @@ class StegaTonic(object):
         load = im.load()
 
         pix    = im.getdata()
-        width,height = im.size
+        imageWidth,imageHeight = im.size
         text   = self.msg2bin(message)
 
         pixelsNeeded = len(message) * 3
 
-        if pixelsNeeded > (height * width):
+        if pixelsNeeded > (imageHeight * imageWidth):
             print "[-] Not enough pixels to encode! Quiting..."
             sys.exit(1)
         
@@ -58,14 +58,8 @@ class StegaTonic(object):
 
             random.seed(msgToDec+x)
 
-            pixelsHeight = random.randint(0,height)
-            pixelsWidth  = random.randint(0,width)
-
-            if pixelsWidth == width:
-                pixelsWidth -= 1
-
-            if pixelsHeight == height:
-                pixelsHeight -= 1
+            pixelsHeight = random.randint(0,imageHeight-1)
+            pixelsWidth  = random.randint(0,imageWidth-1)
 
             pixel = load[pixelsWidth, pixelsHeight]
             val   = pixel[channels[dominantColor]]
@@ -127,14 +121,8 @@ class StegaTonic(object):
 
             random.seed(msgToDec+x)
 
-            pixelsHeight = random.randint(0,imageHeight)
-            pixelsWidth  = random.randint(0,imageWidth)
-
-            if pixelsWidth == imageWidth:
-                pixelsWidth -= 1
-
-            if pixelsHeight == imageHeight:
-                pixelsHeight -= 1
+            pixelsHeight = random.randint(0,imageHeight-1)
+            pixelsWidth  = random.randint(0,imageWidth-1)
 
             pixel = load[pixelsWidth, pixelsHeight]
             val   = pixel[channels[dominantColor]]
