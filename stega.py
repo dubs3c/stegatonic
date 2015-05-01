@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-from modules import stegatonic
+from stegatonic.stegatonic import StegaTonic
 
 def main():
     parser = argparse.ArgumentParser(description='Stegatonic uses steganography to hide data within images')
