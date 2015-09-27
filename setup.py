@@ -6,15 +6,16 @@ except ImportError:
     from distutils.core import setup
 
 config = {
+    'name': 'StegaTonic',
     'description': 'StegaTonic',
     'author': 'Michael Dubell',
     'url': 'https://github.com/mjdubell/stegatonic',
     'download_url': 'https://github.com/mjdubell/stegatonic',
-    'version': '0.5',
-    'install_requires': ['Pillow', 'nose', 'argparse','warnings'],
+    'version': '1.0',
+    'install_requires': ['Pillow', 'nose', 'argparse','warnings', "pycrypto"],
     'packages': ['stegatonic'],
     'scripts': [],
-    'name': 'StegaTonic'
+    'license'='LICENSE.txt'
 }
 
 setup(**config)

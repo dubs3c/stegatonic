@@ -3,6 +3,7 @@ import binascii
 import random
 import math
 import sys
+from stegatonicCrypto import StegaTonicCrypto
 
 try:
     from PIL import Image
@@ -12,7 +13,8 @@ except ImportError:
 class StegaTonic(object):
 
     def __init__(self, image):
-        self.image = image
+        self.image  = image
+        self.stegaCrypto = StegaTonicCrypto()
 
     def msg2bin(self, msg):
         text = ""
@@ -34,11 +36,13 @@ class StegaTonic(object):
 
         load = im.load()
 
+        encryptedText = self.stegaCrypto.encrypt(message, pw)
+
         pix    = im.getdata()
         imageWidth,imageHeight = im.size
-        text   = self.msg2bin(message)
+        text   = self.msg2bin(encryptedText)
 
-        pixelsNeeded = len(message) * 3
+        pixelsNeeded = len(encryptedText) * 3
 
         if pixelsNeeded > (imageHeight * imageWidth):
             print "[-] Not enough pixels to encode! Quiting..."
@@ -107,6 +111,7 @@ class StegaTonic(object):
 
         msgToDec     = 0
         index        = password.rfind("-")
+        pw           = password[:index]
         pixelsNeeded = int(password[index+1:])
 
         for t in password[:index]:
@@ -138,7 +143,9 @@ class StegaTonic(object):
 
         bin2int = int(encoded,2)
         decoded = binascii.unhexlify('%x' % bin2int)
-        print "[+] Decoded message: %s" % (decoded)
+        decrypted = self.stegaCrypto.decrypt(decoded, pw)
+        return decrypted
+        #print "[+] Decoded message: %s" % (decoded)
 
     def analyze(self, data):
         channel = {'RED': 0, 'GREEN':0, 'BLUE':0}
@@ -157,4 +164,3 @@ class StegaTonic(object):
         fileType = path[-4:]
 
         return "%s_out%s" % (filename, fileType)
-
