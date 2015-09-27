@@ -4,9 +4,9 @@ The word steganography is of Greek origin and means "concealed writing" from the
 
 ---
 
-**StegaTonic** encrypts your message with AES256 and emebds it within your specified image.
+**StegaTonic** encrypts your message with AES256 and embeds it within your specified image.
 
-The method of encoding data within the image is a slighty modified version of the traditional LSB method. Instead of encoding the data in each pixel LSB StegaTonic first analyses all the pixels in the image and counts all the RGB channel values to find the one with highest total value (most used channel). The the channel with the highest value have been found, StegaTonic will start encoding data only in this channel.
+The method of encoding data within the image is a slighty modified version of the traditional LSB method. Instead of encoding the data in each pixel LSB StegaTonic first analyses all the pixels in the image and counts all the RGB channel values to find the one with highest total value (most used channel). When the channel with the highest value have been found, StegaTonic will start encoding data using this channel only.
 
 This way you reduce the total amount of distortion made to the stego image which limits statistical analysis.
 
