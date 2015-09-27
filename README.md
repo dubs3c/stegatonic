@@ -17,4 +17,4 @@ For encryption I'm using the pycrypto library.
 4. Done
 
 If you have troubles installing pycrypto on Ubuntu, try installing the following:
-	sudo aptitude install autoconf g++ gcc python2.7-dev gmp-devel
+```sudo aptitude install autoconf g++ gcc python2.7-dev gmp-devel```
