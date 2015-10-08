@@ -17,7 +17,7 @@ def test_encryption_decryption():
 def test_encode_decode():
 	test_message  = "Testing encoding"
 	test_password = "Test"
-	test_image = "test/lime.png"
+	test_image = "test/test.png"
 
 	stega = StegaTonic(test_image)
 
