@@ -80,11 +80,7 @@ class StegaTonicCrypto(object):
 			
 			return plain_text.replace('\x00','')
 		else:
-			print '[-] HMAC failed, message may have been tampered with'
-			decryption_suite = AES.new(key, AES.MODE_CBC, extractIv)
-			plain_text       = decryption_suite.decrypt(base64.b64decode(extractCiphertext))
-
-			return plain_text.replace('\x00','')
+			return False
 
 
 

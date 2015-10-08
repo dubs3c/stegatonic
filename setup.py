@@ -15,7 +15,7 @@ config = {
     'install_requires': ['Pillow', 'nose', 'argparse','warnings', "pycrypto"],
     'packages': ['stegatonic'],
     'scripts': [],
-    'license'='LICENSE.txt'
+    'license': 'LICENSE.txt'
 }
 
 setup(**config)

@@ -32,7 +32,7 @@ class StegaTonic(object):
         try:
             im = Image.open(self.image)
         except IOError:
-            print "[-] Could not load image. Did you specify correct path?"
+            sys.exit("[-] Could not load image. Did you specify correct path?")
 
         load = im.load()
 
@@ -144,7 +144,10 @@ class StegaTonic(object):
         bin2int = int(encoded,2)
         decoded = binascii.unhexlify('%x' % bin2int)
         decrypted = self.stegaCrypto.decrypt(decoded, pw)
-        return decrypted
+        if decrypted != False:
+            return decrypted
+        else:
+            sys.exit("[-] HMAC failed, you probably have the wrong password")
         #print "[+] Decoded message: %s" % (decoded)
 
     def analyze(self, data):
